@@ -2,9 +2,12 @@ import os
 import sys
 from dotenv import load_dotenv
 from google import genai
+from google.genai import types
 
 def main():
     print("Hello from aiagent!")
+
+    messages = [types.Content(role="user", parts=[types.Part(text=user_prompt)]),]
 
     if len(sys.argv) < 2:
         print("Error: Please provide a prompt as a command line argument.")
@@ -18,7 +21,7 @@ def main():
 
     client = genai.Client(api_key=api_key)
 
-    response = client.models.generate_content( model="gemini-2.0-flash-001", contents=prompt)
+    response = client.models.generate_content( model="gemini-2.0-flash-001", contents=messages,)
 
     print(response.text)
 
