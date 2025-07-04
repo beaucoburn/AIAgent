@@ -10,7 +10,10 @@ def get_files_info(working_directory, direcotry=None):
         working_dir_abs = os.path.abspath(working_directory)
         target_dir_abs = os.path.abspath(full_path)
 
-        if not target_dir_abs.startswith(working_dir_abs):
+        working_dir_abs = os.path.normpath(working_dir_abs)
+        target_dir_abs = os.path.normpath(target_dir_abs)
+
+        if not (target_dir_abs.startswith(working_dir_abs) and (target_dir_abs == working_dir_abs or target_dir_abs.startwith(working_dir_abs + os.sep))):
             return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
 
         if not os.path.exists(target_dir_abs):
