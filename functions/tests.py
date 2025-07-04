@@ -15,3 +15,9 @@ def main():
     result = get_files_info("calculator", "pkg")
     print("Result for pkg subdirectory:")
     print(result)
+
+    print("\n3. Testing access to /bin (should fail):")
+    print('Running: get_files_info("calculator", "/bin")')
+    result = get_files_info("calculator", "/bin")
+    print("Result for '/bin' directory:")
+    print(result)
