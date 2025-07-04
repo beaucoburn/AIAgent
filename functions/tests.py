@@ -21,3 +21,9 @@ def main():
     result = get_files_info("calculator", "/bin")
     print("Result for '/bin' directory:")
     print(result)
+
+    print("\n4. Testing access to parent directory (should fail):")
+    print('Running: get_files_info("calculator", "../")')
+    result = get_files_info("calculator", "../")
+    print("Result for '../' directory:")
+    print(result)
