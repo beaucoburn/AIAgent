@@ -32,3 +32,6 @@ def get_files_info(working_directory, direcotry=None):
                 result_lines.append(f" - {item}: Error getting info - {str(e)}")
 
         return "\n".join(result_lines)
+
+    except Exception as e:
+        return f'Error: {str(e)}'
