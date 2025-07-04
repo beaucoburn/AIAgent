@@ -7,14 +7,18 @@ from google.genai import types
 def main():
     print("Hello from aiagent!")
 
-    messages = [types.Content(role="user", parts=[types.Part(text=user_prompt)]),]
-
     if len(sys.argv) < 2:
         print("Error: Please provide a prompt as a command line argument.")
         print("Usage: python3 main.py \"Your prompt here\"")
         sys.exit(1)
 
-    prompt = sys.argv[1]
+    user_prompt = sys.argv[1]
+    verbose = "--verbose" in sys.argv
+
+    if verbose:
+        print(f"User prompt: {user_prompt}")
+
+    messages = [types.Content(role="user", parts=[types.Part(text=user_prompt)]),]
 
     load_dotenv()
     api_key = os.environ.get("GEMINI_API_KEY")
