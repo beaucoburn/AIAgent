@@ -1,7 +1,7 @@
 from functions.get_files_info import get_files_info
 
 
-def main():
+def test():
     result = get_files_info("calculator", ".")
     print("Result for current directory:")
     print(result)
@@ -21,4 +21,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    test()
