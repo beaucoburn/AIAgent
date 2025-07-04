@@ -27,3 +27,12 @@ def main():
     result = get_files_info("calculator", "../")
     print("Result for '../' directory:")
     print(result)
+
+    print("\n5. Testing with None directory parameter:")
+    print('Running: get_files_info("calculator", None)')
+    result = get_files_info("calculator", None)
+    print("Result for None directory:")
+    print(result)
+
+if __name__ == "__main__":
+    main()
