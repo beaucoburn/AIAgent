@@ -10,4 +10,8 @@ def main():
     print("Result for current directory:")
     print(result)
 
-
+    print("\n2. Testing pkg subdirectory:")
+    print('Running: get_files_info("calculator", "pkg")')
+    result = get_files_info("calculator", "pkg")
+    print("Result for pkg subdirectory:")
+    print(result)
