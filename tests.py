@@ -10,6 +10,12 @@ def main():
     print("Result for current directory:")
     print(result)
 
+    import os
+    if not os.path.exists("calculator"):
+        print("\nDEBUG: 'calculator' directory does not exist in current working directory")
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Contents of current directory: {os.listdir('.')}")
+
     print("\n2. Testing pkg subdirectory:")
     print('Running: get_files_info("calculator", "pkg")')
     result = get_files_info("calculator", "pkg")
