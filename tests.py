@@ -1,22 +1,28 @@
-from functions.write_file import write_file
+from functions.run_python_file import run_python_file
 
 
 def test():
-    # Test writing to lorem.txt in calculator
-    result = write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum")
-    print("Result for writing to calculator/lorem.txt:")
+    # Test running main.py in calculator
+    result = run_python_file("calculator", "main.py")
+    print("Result for running calculator/main.py:")
     print(result)
     print("")
 
-    # Test writing to morelorem.txt in calculator/pkg
-    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
-    print("Result for writing to calculator/pkg/morelorem.txt:")
+    # Test running tests.py in calculator
+    result = run_python_file("calculator", "tests.py")
+    print("Result for running calculator/tests.py:")
     print(result)
     print("")
 
-    # Test writing to a file outside the working directory
-    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
-    print("Result for writing to /tmp/temp.txt (should error):")
+    # Test running a file outside the working directory
+    result = run_python_file("calculator", "../main.py")
+    print("Result for running ../main.py (should error):")
+    print(result)
+    print("")
+
+    # Test running a non-existent file
+    result = run_python_file("calculator", "nonexistent.py")
+    print("Result for running nonexistent.py (should error):")
     print(result)
     print("")
 
