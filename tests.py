@@ -1,22 +1,22 @@
-from functions.get_file_content import get_file_content
+from functions.write_file import write_file
 
 
 def test():
-    # Test reading main.py in calculator
-    result = get_file_content("calculator", "main.py")
-    print("Result for calculator/main.py:")
+    # Test writing to lorem.txt in calculator
+    result = write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum")
+    print("Result for writing to calculator/lorem.txt:")
     print(result)
     print("")
 
-    # Test reading calculator.py in calculator/pkg
-    result = get_file_content("calculator", "pkg/calculator.py")
-    print("Result for calculator/pkg/calculator.py:")
+    # Test writing to morelorem.txt in calculator/pkg
+    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
+    print("Result for writing to calculator/pkg/morelorem.txt:")
     print(result)
     print("")
 
-    # Test reading a file outside the working directory
-    result = get_file_content("calculator", "/bin/cat")
-    print("Result for /bin/cat (should error):")
+    # Test writing to a file outside the working directory
+    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
+    print("Result for writing to /tmp/temp.txt (should error):")
     print(result)
     print("")
 
