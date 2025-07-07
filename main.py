@@ -35,16 +35,19 @@ def main():
 
 
 def generate_content(client, messages, system_prompt, verbose):
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-001",
-        contents=messages,
-        config=types.GenerateContentConfig(system_instruction=system_prompt),
-    )
-    if verbose:
-        print("Prompt tokens:", response.usage_metadata.prompt_token_count)
-        print("Response tokens:", response.usage_metadata.candidates_token_count)
-    print("Response:")
-    print(response.text)
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.0-flash-001",
+            contents=messages,
+            config=types.GenerateContentConfig(system_instruction=system_prompt),
+        )
+        if verbose:
+            print("Prompt tokens:", response.usage_metadata.prompt_token_count)
+            print("Response tokens:", response.usage_metadata.candidates_token_count)
+        print("Response:")
+        print(response.text)
+    except Exception as e:
+        print(f"Error generating content: {e}")
 
 
 if __name__ == "__main__":
