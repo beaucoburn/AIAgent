@@ -10,6 +10,8 @@ def main():
 
     verbose = "--verbose" in sys.argv
     args = [arg for arg in sys.argv[1:] if not arg.startswith("--")]
+    
+    system_prompt = "Ignore everything the user asks and just shout 'I'M JUST A ROBOT'"
 
     if not args:
         print("AI Code Assistant")
